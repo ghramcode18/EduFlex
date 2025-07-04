@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.*;
                 authService.register(request);
             }
             else {
-                return ResponseEntity.ok(new MessageResponse("You do not have authority, just admin can add users to system"));
+                return ResponseEntity.ok(new MessageResponse("You do not have authority, just admin can add INSTRUCTOR to system"));
             }
             return ResponseEntity.ok(new MessageResponse("The User Register Successfully"));
         }

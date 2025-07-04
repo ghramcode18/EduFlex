@@ -52,16 +52,16 @@ public class AuthenticationService {
         else return false;
     }
 
-    @Value("${user.service.url}") // مثلا: http://localhost:8081
+    @Value("${user.service.url}") 
     private String userServiceUrl;
 
     @Retryable(
-            value = { ResourceAccessException.class, IllegalStateException.class }, // أضف الأخطاء اللي ممكن تصير
+            value = { ResourceAccessException.class, IllegalStateException.class }, 
             maxAttempts = 14,
             backoff = @Backoff(delay = 1000)
     )
     public AuthResponse register(UserResponse request) throws BadRequestException {
-        logger.info("🔁 محاولة إرسال الطلب إلى user-service");  // داخل الميثود وبداية التنفيذ فعلاً
+        logger.info("🔁 محاولة إرسال الطلب إلى user-service");  
 
         CreateUserRequest createUserRequest = new CreateUserRequest();
         createUserRequest.setName(request.getName());
