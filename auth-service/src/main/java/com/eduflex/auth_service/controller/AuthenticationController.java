@@ -37,6 +37,13 @@ import org.springframework.web.bind.annotation.*;
             return ResponseEntity.ok(new MessageResponse("The User Register Successfully"));
         }
 
+
+        @PostMapping("/register/student")
+        public ResponseEntity<MessageResponse> registerAsUser(@RequestBody UserResponse request) throws BadRequestException {
+                authService.register(request);
+            return ResponseEntity.ok(new MessageResponse("The User Register Successfully"));
+        }
+
         @PostMapping("/login")
         public ResponseEntity<AuthResponse> authenticate(@RequestBody LoginRequest request) throws BadRequestException {
             AuthResponse response = authService.authenticate(request);

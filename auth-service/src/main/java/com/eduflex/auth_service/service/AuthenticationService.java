@@ -79,7 +79,7 @@ public class AuthenticationService {
             logger.info("✅ تم إرسال الطلب بنجاح إلى user-service");
         } catch (Exception e) {
             logger.error("❌ فشل الاتصال بـ user-service: {}", e.getMessage());
-            throw e; // لا تلتقط الاستثناء هنا حتى يسمح بالـ retry
+            throw e;
         }
 
         String accessToken = jwtService.generateAccessToken(request);
